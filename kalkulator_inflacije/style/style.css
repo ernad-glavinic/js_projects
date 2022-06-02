@@ -19,7 +19,7 @@ h1 {
 	margin-bottom: 50px;
 }
 
-span{
+.heading{
 	color: red;
 	border-bottom: 1px solid red;
 }
@@ -76,4 +76,13 @@ span{
 .new-value {
 	margin-top: 20px;
 	font-size: 20px;
+}
+
+#message{
+	margin-top: 20px;
+}
+
+.mark{
+	font-weight: bold;
+	color: red;
 }

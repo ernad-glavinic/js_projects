@@ -14,14 +14,16 @@
 <body>
 	<div class="background-overlay">
 		<div class="main-container">
-			<h1>Kalkulator <span>inflacije</span></h1>
+			<h1>Inflation <span class="heading">calculator</span></h1>
 
 			<div class="container">
-				<input placeholder="Stopa inflacije u %" type="number" min="0.1" id="inflationRate">
-				<input placeholder="Iznos u €" type="number" min="1" id="money">
-				<input placeholder="Broj godina" type="number" min="1" id="years">
+				<input placeholder="Inflation rate  [ % ]" type="number" min="0.1" id="inflationRate">
+				<input placeholder="Money [ € ]" type="number" min="1" id="money">
+				<input placeholder="Years " type="number" min="1" id="years">
 
-				<button onclick="inflationCalculator()">Izračunaj</button>
+				<button onclick="inflationCalculator()">Calculate</button>
+
+				<div id="message"></div>
 			</div>
 		</div>
 
