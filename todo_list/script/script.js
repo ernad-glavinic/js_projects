@@ -1,13 +1,14 @@
 var todoContainer = document.querySelector(".display-container");
 var toDoItem = document.getElementById("to-do-input");
 
-var todo = ["Clean the room", "Water plant", "Finish book"];
-
-function loadToDos(container, arr){
-    todoContainer.innerHTML = "";
-    for(let i = 0; i < arr.length; i++){
+function loadToDos(container){
+    var data = JSON.parse(localStorage.getItem("todo"));
+    console.log(data);
+    container.innerHTML = "";
+    
+    for(let i = 0; i < data.length; i++){
         let element =   `<div class="todo-item">
-        <p>${arr[i]}</p>
+        <p>${data[i]}</p>
         <span class="span-delete" onclick="deleteToDo(${i})">
             delete
         </span>
@@ -18,8 +19,7 @@ function loadToDos(container, arr){
 }
 
 function insertToDo(){
-    todo.push(toDoItem.value);
-    loadToDos(todoContainer, todo);
+    localStorage.setItem("ToDoItem" + Math.round(Math.random() * 100), toDoItem.value);
     toDoItem.value = "";
 }
 
@@ -28,4 +28,4 @@ function deleteToDo(id){
     loadToDos(todoContainer, todo);
 }
 
-loadToDos(todoContainer, todo);
+loadToDos(todoContainer);
