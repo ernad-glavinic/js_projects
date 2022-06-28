@@ -35,6 +35,7 @@ h3 {
 
 .items {
 	width: 60%;
+    overflow-y: scroll;
 	padding: 20px;
 }
 
@@ -42,7 +43,7 @@ h3 {
 	width: 40%;
 	padding: 20px;
 	border-left: 2px solid brown;
-	background-image: url('img/cart.png');
+	background-image: url('../images/cart.png');
 	background-size: 150px;
 	background-position: center;
 	background-repeat: no-repeat;
