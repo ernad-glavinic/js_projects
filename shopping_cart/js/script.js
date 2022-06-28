@@ -21,11 +21,37 @@ function addToCart(element){
 
     cartItems.innerHTML += `<div class="cart-single-item">
                                 <h3>${name}</h3>
-                                <p>$${price} * ${quantity} = $${total}</p>
+                                <p>$${price} * ${quantity} = $<span>${total}</span></p>
+                                <button onclick="removeFromCart(this)" class="remove-item">Remove</button>
                             </div>`;
 
     element.innerText = "Added";
     element.setAttribute('disabled', 'true');
 
     document.querySelector('.total').innerText = "Total amount: $" + allTotal;
+}
+
+function removeFromCart(element){
+    let mainElement = element.closest('.cart-single-item');
+    let price = mainElement.querySelector('p span').innerText;
+    let name = mainElement.querySelector('.cart-single-item h3').innerText;
+    let vegetables = document.querySelectorAll('.single-item');
+
+    allTotal -= parseFloat(price);
+
+    document.querySelector('.total').innerText = "Total amount: $" + allTotal;
+    mainElement.remove();
+
+    vegetables.forEach(function (vege){
+        let itemName = vege.querySelector('.si-content h3').innerText;
+
+        console.log("Item name " + itemName);
+        console.log("Removed item name " +name);
+
+        if(itemName === name){
+            vege.querySelector('.actions input').value = 0;
+            vege.querySelector('.actions button').removeAttribute('disabled');
+            vege.querySelector('.actions button').innerText = "Add";
+        }
+    });
 }
